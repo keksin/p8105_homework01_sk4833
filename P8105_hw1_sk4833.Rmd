@@ -56,21 +56,8 @@ as.numeric(pull(prob1_df,factor_vec)) * pull(prob1_df, samp)
 
 ## Problem 2
 
-Download the package.
-<<<<<<< HEAD
-
-=======
->>>>>>> 7716f54b9e9d46ae67b4b076396fdf823a66f982
-```{r}
-install.packages("palmerpenguins")
-```
-
-
 Load the "penguins" dataset.
-<<<<<<< HEAD
 
-=======
->>>>>>> 7716f54b9e9d46ae67b4b076396fdf823a66f982
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
@@ -82,28 +69,29 @@ Short description of penguins dataset:
 There are `r ncol(penguins)` variables and `r nrow(penguins)` observations in this data set,
 and variables are "`r names(penguins)`".
 
-For variable **species**, levels are `r levels(pull(penguins,species))`
-For variable **island**, levels are `r levels(pull(penguins,island))`
-For variable **bill_length_mm**, range is `r range(pull(penguins,bill_length_mm),na.rm = TRUE)`
-For variable **bill_depth_mm**, range is `r range(pull(penguins,bill_depth_mm),na.rm = TRUE)`
-For variable **flipper_length_mm**, range is `r range(pull(penguins,flipper_length_mm),na.rm = TRUE)`
-For variable **body_mass_g**, range is `r range(pull(penguins,body_mass_g),na.rm = TRUE)`
-For variable **year*, range is `r range(pull(penguins,year))`
-For variable **sex**, levels are `r levels(pull(penguins,sex))`
+For variable **species**, levels are `r levels(pull(penguins,species))`.
+
+For variable **island**, levels are `r levels(pull(penguins,island))`.
+
+For variable **bill_length_mm**, range is `r range(pull(penguins,bill_length_mm),na.rm = TRUE)`.
+
+For variable **bill_depth_mm**, range is `r range(pull(penguins,bill_depth_mm),na.rm = TRUE)`.
+
+For variable **flipper_length_mm**, range is `r range(pull(penguins,flipper_length_mm),na.rm = TRUE)`.
+
+For variable **body_mass_g**, range is `r range(pull(penguins,body_mass_g),na.rm = TRUE)`.
+
+For variable **year**, range is `r range(pull(penguins,year))`.
+
+For variable **sex**, levels are `r levels(pull(penguins,sex))`.
 
 
 
 
-=======
-There are **`ncol(penguins)`** variables and **`nrow(penguins)`** observations in this data set,
-and variables are "`r names(penguins)`".
-
->>>>>>> 7716f54b9e9d46ae67b4b076396fdf823a66f982
 ```{r}
 ncol(penguins)
 nrow(penguins)
 names(penguins)
-<<<<<<< HEAD
 levels(pull(penguins,species))
 levels(pull(penguins,island))
 range(pull(penguins,bill_length_mm),na.rm = TRUE)
@@ -112,17 +100,13 @@ range(pull(penguins,flipper_length_mm),na.rm = TRUE)
 range(pull(penguins,body_mass_g),na.rm = TRUE)
 range(pull(penguins,year))
 levels(pull(penguins,sex))
-=======
->>>>>>> 7716f54b9e9d46ae67b4b076396fdf823a66f982
+
 ```
 
 
+
 I also take the mean of flipper length, 
-<<<<<<< HEAD
 and it is `r mean(pull(penguins,flipper_length_mm),na.rm = TRUE)`.
-=======
-and it is **`r mean(pull(penguins,flipper_length_mm),na.rm = TRUE)**
->>>>>>> 7716f54b9e9d46ae67b4b076396fdf823a66f982
 
 ```{r}
 mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
