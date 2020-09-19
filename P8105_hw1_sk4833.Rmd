@@ -46,5 +46,86 @@ as.numeric(pull(prob1_df,factor_vec))
 ```
 
 
+```{r}
+as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.numeric(pull(prob1_df,factor_vec)) * pull(prob1_df, samp)
+
+```
+
+
 
 ## Problem 2
+
+Download the package.
+
+```{r}
+install.packages("palmerpenguins")
+```
+
+
+Load the "penguins" dataset.
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+# Section 1
+Short description of penguins dataset:
+
+There are `r ncol(penguins)` variables and `r nrow(penguins)` observations in this data set,
+and variables are "`r names(penguins)`".
+
+For variable **species**, levels are `r levels(pull(penguins,species))`
+For variable **island**, levels are `r levels(pull(penguins,island))`
+For variable **bill_length_mm**, range is `r range(pull(penguins,bill_length_mm),na.rm = TRUE)`
+For variable **bill_depth_mm**, range is `r range(pull(penguins,bill_depth_mm),na.rm = TRUE)`
+For variable **flipper_length_mm**, range is `r range(pull(penguins,flipper_length_mm),na.rm = TRUE)`
+For variable **body_mass_g**, range is `r range(pull(penguins,body_mass_g),na.rm = TRUE)`
+For variable **year*, range is `r range(pull(penguins,year))`
+For variable **sex**, levels are `r levels(pull(penguins,sex))`
+
+
+
+
+```{r}
+ncol(penguins)
+nrow(penguins)
+names(penguins)
+levels(pull(penguins,species))
+levels(pull(penguins,island))
+range(pull(penguins,bill_length_mm),na.rm = TRUE)
+range(pull(penguins,bill_depth_mm),na.rm = TRUE)
+range(pull(penguins,flipper_length_mm),na.rm = TRUE)
+range(pull(penguins,body_mass_g),na.rm = TRUE)
+range(pull(penguins,year))
+levels(pull(penguins,sex))
+```
+
+
+I also take the mean of flipper length, 
+and it is `r mean(pull(penguins,flipper_length_mm),na.rm = TRUE)`.
+
+```{r}
+mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
+```
+
+
+# Section 2
+Scatter plot of flipper_length_mm (y) vs bill_length_mm (x) 
+
+```{r}
+plot_df = tibble(
+  x = pull(penguins, bill_length_mm),
+  y = pull(penguins, flipper_length_mm),
+  species = pull(penguins, species)
+)
+
+ggplot(plot_df, aes(x = x, y = y, color = species)) + geom_point()
+```
+
+Export the ggplot
+
+```{r}
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+```
+
