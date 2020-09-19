@@ -104,9 +104,8 @@ levels(pull(penguins,sex))
 ```
 
 
-
 I also take the mean of flipper length, 
-and it is `r mean(pull(penguins,flipper_length_mm),na.rm = TRUE)`.
+and the mean is `r mean(pull(penguins,flipper_length_mm),na.rm = TRUE)`.
 
 ```{r}
 mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
