@@ -46,5 +46,64 @@ as.numeric(pull(prob1_df,factor_vec))
 ```
 
 
+```{r}
+as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.numeric(pull(prob1_df,factor_vec)) * pull(prob1_df, samp)
+
+```
+
+
 
 ## Problem 2
+
+Download the package.
+```{r}
+install.packages("palmerpenguins")
+```
+
+
+Load the "penguins" dataset.
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+# Section 1
+Short description of penguins dataset:
+
+There are **`ncol(penguins)`** variables and **`nrow(penguins)`** observations in this data set,
+and variables are "`r names(penguins)`".
+
+```{r}
+ncol(penguins)
+nrow(penguins)
+names(penguins)
+```
+
+
+I also take the mean of flipper length, 
+and it is **`r mean(pull(penguins,flipper_length_mm),na.rm = TRUE)**
+
+```{r}
+mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
+```
+
+
+# Section 2
+Scatter plot of flipper_length_mm (y) vs bill_length_mm (x) 
+
+```{r}
+plot_df = tibble(
+  x = pull(penguins, bill_length_mm),
+  y = pull(penguins, flipper_length_mm),
+  species = pull(penguins, species)
+)
+
+ggplot(plot_df, aes(x = x, y = y, color = species)) + geom_point()
+```
+
+Export the ggplot
+
+```{r}
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+```
+
